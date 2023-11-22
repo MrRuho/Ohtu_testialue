@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Articles</title>
+<style>
+pre {
+	background-color: lightgrey;
+	border: solid;
+	border-color: grey;
+	padding: 30px;
+}
+</style>
+</head>
+<body>
+	<h1>Articles</h1>
+	<a href="/new">New article</a>
+	{% if items %}
+	<ol>
+		{% for item in items %}
+		<li><table>
+		{% if item.author %}
+		<tr>
+			<td>Author: </td>
+			<td>{{ item.author }}</td>
+		</tr>
+		{% endif %}
+		{% if item.title %}
+		<tr>
+			<td>Title: </td>
+			<td>{{ item.title }}</td>
+		</tr>
+		{% endif %}
+		{% if item.journal %}
+		<tr>
+			<td>Journal: </td>
+			<td>{{ item.journal }}</td>
+		</tr>
+		{% endif %}
+		{% if item.year %}
+		<tr>
+			<td>Year: </td>
+			<td>{{ item.year }}</td>
+		</tr>
+		{% endif %}
+		{% if item.volume %}
+		<tr>
+			<td>Volume: </td>
+			<td>{{ item.volume }}</td>
+		</tr>
+		{% endif %}
+		{% if item.pages %}
+		<tr>
+			<td>Pages: </td>
+			<td>{{ item.pages }}</td>
+		</tr>
+		{% endif %}
+		</table></li>
+		{% endfor %}
+	</ol>
+
+	<h2>Bibtex</h2>
+
+	<pre>{% for item in items %}
+{{ '@article{' }}{{item.key}},{% if item.author %}
+	{{ 'author = {' }}{{ item.author }}{{ '}' }},{% endif %}{% if item.title %}
+	{{ 'title = {' }}{{ item.title }}{{ '}' }},{% endif %}{% if item.journal %}
+	{{ 'journal = {' }}{{ item.journal }}{{ '}' }},{% endif %}{% if item.year %}
+	{{ 'year = {' }}{{ item.year }}{{ '}' }},{% endif %}{% if item.volume %}
+	{{ 'volume = {' }}{{ item.volume }}{{ '}' }},{% endif %}{% if item.pages %}
+	{{ 'pages = {' }}{{ item.pages }}{{ '}' }},{% endif %}
+{{ '}' }}
+{% endfor %}</pre>
+	{% else %}
+	<p>There is nothing here yet.</p>
+	{% endif %}
+</body>
+</html>

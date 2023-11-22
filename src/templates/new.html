@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>New article</title>
+<style>
+form {
+	display: table;
+}
+form div {
+	display: table-row;
+}
+label, input {
+	display: table-cell;
+}
+</style>
+</head>
+<body>
+	<h1>New Article</h1>
+	<form method="post">
+	<div>
+		<label for="key">Create your BibTeX key: </label>
+		<input type="text" name="key" id="key" required />
+	</div><div>
+		<label for="author">Author: </label>
+		<input type="text" name="author" id="author" required />
+	</div><div>
+		<label for="title">Title: </label>
+		<input type="text" name="title" id="title" required />
+	</div><div>
+		<label for="journal">Journal: </label>
+		<input type="text" name="journal" id="journal" required />
+	</div><div>
+		<label for="year">Year: </label>
+		<input type="text" name="year" id="year" required />
+	</div><div>
+		<label for="volume">Volume: </label>
+		<input type="text" name="volume" id="volume" />
+	</div><div>
+		<label for="pages">Pages: </label>
+		<input type="text" name="pages" id="pages" />
+	</div>
+	<div>
+		<input type="submit" value="Save" />
+	</div>
+	</form>
+</body>
+</html>
