@@ -11,7 +11,7 @@ class AppLibrary:
 
         if use_headless:
             # Lisätään headless-tila
-            chrome_options.add_argument('--headless')
+            # chrome_options.add_argument('--headless')
             chrome_options.add_argument('--disable-gpu')
 
         # Luodaan WebDriver-olio ChromeOptions-oliolla
